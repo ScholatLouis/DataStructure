@@ -4,7 +4,7 @@ public class solution_206 {
         int[] arr = new int[]{1,2,3,4,5};
         LinkNode head = solution.generateLinkedList(arr);
         solution.print(head);
-        head = solution.reverseList(head);
+        head = solution.reverseList3(head);
         solution.print(head);
         head = solution.recursiveReverse(head, new LinkNode());
         solution.print(head);
@@ -21,6 +21,17 @@ public class solution_206 {
             newHeader.next = fence;
         }
         return newHeader.next;
+    }
+
+    public LinkNode reverseList3(LinkNode head) {
+        LinkNode newHeader = new LinkNode();
+        while(head != null) {
+            LinkNode next = head.next;
+            head.next = newHeader;
+            newHeader = head;
+            head = next;
+        }
+        return newHeader;
     }
 
     // Error
@@ -51,7 +62,7 @@ public class solution_206 {
     }
 
     public LinkNode generateLinkedList(int[] arr) {
-        LinkNode head = new LinkNode(0);
+        LinkNode head = new LinkNode();
         LinkNode fence = head;
         for(int i = 0; i < arr.length; ++i) {
             fence.next = new LinkNode(arr[i]);
