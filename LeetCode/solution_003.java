@@ -6,6 +6,7 @@ public class solution_003 {
         solution_003 solution = new solution_003();
         String s = "pwwkew";
         solution.lengthOfLongestSubstring3(s);
+        solution.lengthOfLongestSubsequence(s);
     }
     
     // subsequence is not equal to the substring
@@ -46,10 +47,22 @@ public class solution_003 {
                 set.add(s.charAt(end++));
                 maxLength = Math.max(maxLength, end - start);
             } else {
+                System.out.println(s.charAt(start) + " " +  start + " " + end);
                 set.remove(s.charAt(start++));
             }
         }
         System.out.println(set.toString());
         return maxLength;
+    }
+
+    public int lengthOfLongestSubsequence(String s) {
+        if(s == null || s.length() == 0)
+            return 0;
+        HashSet<Character> set = new HashSet<Character>();
+        for(char c : s.toCharArray()) {
+            set.add(c);
+        }
+        System.err.println(set.size() + " " + set.toString());
+        return set.size();
     }
 }

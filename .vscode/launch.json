@@ -6,6 +6,26 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Static",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "Static",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - solution_824",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "solution_824",
+            "args": ""
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch)",
             "request": "launch",
             "cwd": "${workspaceFolder}",

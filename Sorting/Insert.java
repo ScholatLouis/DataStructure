@@ -25,4 +25,21 @@ public class Insert {
             unsorted[index] = comparison;
         }
     }
+
+    // 将一个未排序的数插入到已经排好序的序列中
+    // 选取第一个作为已经排好序的
+    // 从后往前对已经排好序的进行比较 找到合适的位置插入
+    public static void insertSort2(int[] arr) {
+        for(int i = 1; i < arr.length; ++i) {
+            int comparsion = arr[i];
+            int index = i;
+            for(int j = i; j > 0; --j) {
+                if(arr[j] > comparsion) {
+                    arr[j] = arr[j-1];
+                    --index;
+                }
+            }
+            arr[index] = comparsion;
+        }
+    }
 }

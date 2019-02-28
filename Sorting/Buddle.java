@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Buddle {
     public static void main(String[] args) {
         System.out.println("LouisZeng");
@@ -8,6 +10,7 @@ public class Buddle {
             System.out.print(item);
         }
         System.out.println();
+        bubbleSort();
     }
 
     /**
@@ -26,5 +29,35 @@ public class Buddle {
                 }
             }
         }
+    }
+
+    // 每趟只排序好一个数，因此需要n趟
+    // 每一趟需要对比的数量为n-i
+    // 大数下沉
+    public static void buddleSort2(int[] arr) {
+        for(int i = 0; i < arr.length - 1; ++i) {
+            for(int j = 1; j < arr.length - i; ++j) {
+                if(arr[j-1] > arr[j]) {
+                    // 交换前后两个数
+                }
+            }
+        }
+    }
+
+    // 冒泡排序 n趟 大的往后走 前后两个比较
+    public static void bubbleSort() {
+        int[] arr = new int[]{4, 2, 5, 1, 0};
+        if(arr == null || arr.length == 0) 
+            return ;
+        for(int i = 0; i < arr.length; ++i) {
+            for(int j = 1; j < arr.length - i; ++j) {
+                if(arr[j-1] > arr[j]) {
+                    int temp = arr[j-1];
+                    arr[j-1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(arr));
     }
 }

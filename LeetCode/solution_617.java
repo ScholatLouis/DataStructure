@@ -72,9 +72,11 @@ public class solution_617 {
     }
 
     public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
+        if(t1 == null && t2 == null) return null;
         if(t1 == null) {
             return t2;
         }
+
         if(t2 == null) {
             return t1;
         }
@@ -84,4 +86,21 @@ public class solution_617 {
         root.right = mergeTrees(t1.right, t2.right);
         return root;
     }
+
+    public static TreeNode mergeTree2(TreeNode t1, TreeNode t2) {
+        if(t1 == null && t2 == null) return null;
+        if(t1 == null) return t2;
+        if(t2 == null) return t1;
+        t1.val = t1.val + t2.val;
+        t1.left = mergeTree2(t1.left, t2.left);
+        t1.right = mergetTree2(t1.right, t2.right);
+        return t1;
+    }
+
+    public static TreeNode mergeTreesWithQueue(TreeNode t1, TreeNode t2) {
+        if(t1 == null && t2 == null)
+            return null;
+        return null;
+    }
+
 }

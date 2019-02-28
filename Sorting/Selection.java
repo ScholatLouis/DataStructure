@@ -13,10 +13,10 @@ import org.omg.CORBA.UNSUPPORTED_POLICY;
  public class Selection {
     public static void main(String[] args) {
         System.out.println("LouisZeng");
-        int selctoin[] = new int[]{6, 5, 3, 1, 8, 7, 2, 4, 12};
+        int selection[] = new int[]{6, 5, 3, 1, 8, 7, 2, 4, 12};
         System.out.println("Selection Sorted");
-        selectionSort(selctoin);
-        for(int item : selctoin) {
+        selectionSort(selection);
+        for(int item : selection) {
             System.out.print(item);
             System.out.print(" ");
         }
@@ -35,6 +35,18 @@ import org.omg.CORBA.UNSUPPORTED_POLICY;
             int temp = unsorted[i];
             unsorted[i] = unsorted[minIndex];
             unsorted[minIndex] = temp;
+        }
+    }
+
+    // 从剩余未排序的序列中选择出最小的数出来
+    public static void selectionSort2(int[] arr) {
+        for(int i = 0; i < arr.length; ++i) {
+            int minIndex = i;
+            for(int j = i; j < arr.length; ++j) {
+                if(arr[j] < arr[minIndex]) 
+                    minIndex = j;
+            }
+            // 交换数据
         }
     }
  }
