@@ -22,7 +22,7 @@ public class solution_104 {
                 currentNode = currentNode.left;
             } else {
                 TreeNode node = stack.pop();
-                depth = value.pop();
+                depth = Integer.valueOf(value.pop());
                 maxDepth = Math.max(depth, maxDepth);
                 currentNode = node.right;
             }
