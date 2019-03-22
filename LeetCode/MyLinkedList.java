@@ -35,7 +35,6 @@ public class MyLinkedList {
             store.next = head;
             head = store;
         }
-        
     }
     
     /** Append a node of value val to the last element of the linked list. */

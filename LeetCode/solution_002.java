@@ -1,9 +1,7 @@
 public class solution_002 {
-    public static void main(String[] args) {
+    public static void main(String[] args) { }
 
-    }
-
-    public static LinkNode addTwoNumbewr(LinkNode l1, LinkNode l2) {
+    public static LinkNode addTwoNumber(LinkNode l1, LinkNode l2) {
         if(l1 == null)
             return l2;
         if(l2 == null)
