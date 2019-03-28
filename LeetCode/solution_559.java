@@ -1,19 +1,29 @@
-public class solution_559 {
-    public static void main(String[] args) {
+import java.util.Queue;
+import java.util.List;
+import java.util.ArrayDeque;
 
-    }
+public class solution_559 {
+    public static void main(String[] args) {}
 
     public int maxDepth(Node root) {
-        if(root == null) return 0;
+        if(root == null)
+            return 0;
 
-    }
-
-    public void inOrderTraval(Node root) {
-        if(root.children) {
-            for(Node item : root.children) 
-                inOrderTraval(root.children);
+        int maxPath = 0;
+        Queue<Node> queue = new ArrayDeque<Node>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            ++maxPath;
+            for(int i = 0; i < size; ++i) {
+                Node node = queue.poll();
+                List<Node> children = node.children;
+                for(Node child : children) 
+                    queue.add(child);
+            }
         }
-        System.out.println(root.val);
+
+        return maxPath;
     }
 
 }

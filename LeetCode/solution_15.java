@@ -10,38 +10,41 @@ public class solution_15 {
     }
 
     public static List<List<Integer>> threeSum(int[] nums, int target) {
-        if(nums == null || nums.length == 0)
-            return null;
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-        for(int i = 0; i < nums.length; ++i) {
-            List<Integer> twoResult = twoSum(nums, target - nums[i]);
-            if(twoResult.size() != 0) {
-                twoResult.add(nums[i]);
-                result.add(twoResult);
-            } 
-        }
-        // System.out.println(result.toString());
-        return result;
-    }
+        List<List<Integer>> list = new ArrayList<List<Integer>>();
+        if(nums == null || nums.length < 3)
+            return list;
 
-    public static List<Integer> twoSum(int[] nums, int target) {
-        List<Integer> twoResult = new ArrayList<Integer>();
         Arrays.sort(nums);
-        int low = 0;
-        int high = nums.length - 1;
-        while(low <= high) {
-            if(nums[low] + nums[high] > target)
-                --high;
-            else if(nums[low] + nums[high] < target) 
-                ++low;
-            else {
-                twoResult.add(nums[low]);
-                twoResult.add(nums[high]);
-                System.out.println(twoResult.toString());
-                return twoResult;
+        for(int i = 0; i < nums.length - 2; ++i) {
+            if(i == 0 || (i > 0 && nums[i] != nums[i+1])) {
+                List twoSumList = twoSum(nums, 0 - nums[i], i+1);
+                if(twoSumList != null && twoSumList.size() > 0) {
+                    list.addAll(twoSumList);
+                }
             }
         }
-        
-        return twoResult;
+        return list;
+    }
+
+    public static List<List<Integer>> twoSum(int[] nums, int target, int start) {
+        int low = start;
+        int high = nums.length - 1;
+        List<List<Integer>> list = new ArrayList<List<Integer>>();
+        while(low < high) {
+            if(nums[low] + nums[high] == target) {
+                list.add(Arrays.asList(nums[low], nums[high], 0-target));
+                while(low < high && nums[high] == nums[high-1])
+                    --high;
+                while(low < high && nums[low] == nums[low+1])
+                    ++low;
+                ++low;
+                --high;
+            } else if(nums[low] + nums[high] > target) {
+                --high;
+            } else {
+                ++low;
+            }
+        }
+        return list;
     }
 }
